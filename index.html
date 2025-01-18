@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+<style>
+    .bubble {
+  --r: 1em;  /* the radius */
+  --t: 1.5em; /* the size of the tail */
+  
+  max-width: 300px;
+  padding: 1em;
+  border-inline: var(--t) solid #0000;
+  border-radius: calc(var(--r) + var(--t))/var(--r);
+  mask: 
+    radial-gradient(100% 100% at var(--_p) 0,#0000 99%,#000 102%) 
+      var(--_p) 100%/var(--t) var(--t) no-repeat,
+    linear-gradient(#000 0 0) padding-box;
+  background: linear-gradient(135deg,#073f3d,#08b6ad) border-box;
+  color: #fff;
+}
+.left {
+  --_p: 0;
+  border-bottom-left-radius: 0 0;
+  place-self: start;
+}
+.right {
+  --_p: 100%;
+  border-bottom-right-radius: 0 0;
+  place-self: end;
+}
+@media (max-width: 600px) {
+    #msg{
+        padding:10px;
+
+    }
+}
+
+</style>
+   
+</head>
+<body>
+        <nav class="md:h-[10vh]  h-[7vh] width-full text-white  flex items-center justify-center text-5xl font-bold bg-[#08b6ad]" > <h1>Chat App</h1></nav>
+        <div id="contain" class="md:h-[80vh] overflow-scroll h-[77vh]  w-full bg-[#57f7ef] flex flex-col justify-start gap-4 pt-[2vh]" ></div>
+        <footer class="md:h-[10vh] h-[8vh]  w-[100%] bg-[#08b6ad] flex items-center justify-center gap-1 md:gap-5"> 
+            <input class="md:h-[8vh] h-[6vh] md:w-[86%] w-[80%] px-[2vw] bg-[#17625e] text-white" id="input" type="text" placeholder="Enter your massage">
+            <button onclick="btn()" class="md:h-[8vh] h-[6vh] w-[15%]  md:w-[8%] bg-[#17625e] text-white md:text-3xl" >Send</button>
+        </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
